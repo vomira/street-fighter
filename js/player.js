@@ -42,27 +42,43 @@ class Player {
         console.log('jump!')
         if(this.y === height/2) {
         //by velocity being negative, y is being reduced until velocity reaches 0, then y is increased again until it reaches the bottom
-        this.velocity = -15;
+        this.velocity = -10;
       }
       }
 
       moveLeft() {
-        if(this.x > 200) {
+        if(this.x > 100) {
             this.x -= 20;
         }
       }
 
       moveRight() {
-        if(this.x < width - 400) {
+        if(this.x < width - 200) {
             this.x += 20;
         }
+      } 
+
+      block() {
+        console.log('blocked')
+        if(keyIsDown(73)) {
+          return true;
       }
+        return false
+      }
+
 
       kick(otherPlayer) {
         // console.log(otherPlayer.health);
-        if(this.collision(otherPlayer)) {
-          otherPlayer.health -= 10;
-          console.log(otherPlayer.health);
+        if(this.collision(otherPlayer) && !otherPlayer.block()) {
+          otherPlayer.health -= this.strength/20;
+        }
+       
+      }
+
+      punch(otherPlayer) {
+        // console.log(otherPlayer.health);
+        if(this.collision(otherPlayer) && !otherPlayer.block()) {
+          otherPlayer.health -= this.strength/20;
         }
        
       }

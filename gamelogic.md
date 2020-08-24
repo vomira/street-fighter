@@ -34,3 +34,30 @@ OPTIONAL: choose your player
 
 3. game over screen
 --> replay button
+
+
+CONTROLS
+
+Player 1
+jump: W
+left: A
+right: D
+duck: S
+
+kick: F
+punch: G
+block: T
+
+Player 2
+jump: Up Arrow
+left: Left Arrow
+right: Right Arrow
+duck: Down Arrow
+
+kick: K
+punch: L
+block: I
+
+
+Assets:
+http://arcade.photonstorm.com/

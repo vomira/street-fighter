@@ -9,16 +9,28 @@
 </head>
 <body>
     <img src="./assets/logo.jpeg" alt="street-fighter">
-    <div id='game-container'>
-        <div class='health-container'>
-            Health <progress id="health1" value="100" max="100"></progress>
-            Health <progress id="health2" value="100" max="100"></progress>
+    <div class="stats-header">
+    <div class="stats-container">
+        <span>Health</span>
+        <progress max=100 value=100 class="health" id="health1"></progress>
+        <br>
+        <span>Stamina</span>
+        <progress max=100 value=100 class="stamina" id="stamina1"></progress>
+        <br>
+    </div>
+        <div class="stats-container">
+            <span>Health</span>
+            <progress max=100 value=100 class="health" id="health2"></progress>
+            <br>
+            <span>Stamina</span>
+            <progress max=100 value=100 class="stamina" id="stamina2"></progress>
+            <br>
         </div>
-        <script src='./js/player.js'></script>
+    </div>
+
+    <script src='./js/player.js'></script>
         <script src='./js/background.js'></script>
         <script src='./js/game.js'></script>
         <script src='./js/main.js'></script>
-    </div>
-    
 </body>
 </html>

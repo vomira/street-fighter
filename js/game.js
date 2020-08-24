@@ -14,9 +14,9 @@ class Game {
         //add components to the game
         this.background = new Background();
         this.background.image = this.backgroundImg;
-        this.player1 = new Player('Chun Li', 80, 100, 200);
+        this.player1 = new Player('Chun Li', 80, 100, 100);
         this.player1.image = this.player1Img;
-        this.player2 = new Player('Ryu', 100, 80, width-400);
+        this.player2 = new Player('Ryu', 100, 80, width-200);
         this.player2.image = this.player2Img;
 
     }

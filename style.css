@@ -1,11 +1,15 @@
-body {
-    width: 100vw;
-    height: 1000;
+
+html, body {
+    height: 100%;
+  }
+  
+  body {
+    margin: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
+  }
 
 .stats-header {
     width: 70%;

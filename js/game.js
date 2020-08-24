@@ -18,6 +18,8 @@ class Game {
         this.player1.image = this.player1Img;
         this.player2 = new Player('Ryu', 100, 80, width-200);
         this.player2.image = this.player2Img;
+        document.querySelector('#stamina1').value = game.player1.stamina;
+        document.querySelector('#stamina2').value = game.player2.stamina;
 
     }
 

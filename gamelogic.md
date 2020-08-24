@@ -61,3 +61,11 @@ block: I
 
 Assets:
 http://arcade.photonstorm.com/
+
+
+To Do
+
+- loose stamina on block
+- Animations!
+- restore Stamina with time
+- special attacks

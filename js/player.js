@@ -61,6 +61,7 @@ class Player {
       block() {
         console.log('blocked')
         if(keyIsDown(73)) {
+          this.stamina -= 1;
           return true;
       }
         return false
@@ -68,17 +69,17 @@ class Player {
 
 
       kick(otherPlayer) {
-        // console.log(otherPlayer.health);
         if(this.collision(otherPlayer) && !otherPlayer.block()) {
           otherPlayer.health -= this.strength/20;
+          this.stamina -= 10;
         }
        
       }
 
       punch(otherPlayer) {
-        // console.log(otherPlayer.health);
         if(this.collision(otherPlayer) && !otherPlayer.block()) {
           otherPlayer.health -= this.strength/20;
+          this.stamina -= 20;
         }
        
       }

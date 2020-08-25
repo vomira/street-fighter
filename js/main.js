@@ -48,9 +48,11 @@ function keyPressed() {
     }
     if(keyCode === 71) {
         game.player1.punch(game.player2);
+        game.player1.image = game.player1ImgPunch;
         document.querySelector('#health2').value = game.player2.health;
         document.querySelector('#stamina1').value = game.player1.stamina;
         game.isGameFinished();
+        setTimeout(function() {game.player1.image = game.player1Img},300);
     }
 
     if(keyCode === 38) {
@@ -71,15 +73,19 @@ function keyPressed() {
 
     if(keyCode === 75) {
         game.player2.kick(game.player1);
+        game.player2.image = game.player2ImgKick;
         document.querySelector('#health1').value = game.player1.health;
         document.querySelector('#stamina2').value = game.player2.stamina;
         game.isGameFinished();
+        setTimeout(function() {game.player2.image = game.player2Img},300);
     }
     if(keyCode === 76) {
         game.player2.punch(game.player1);
+        game.player2.image = game.player2ImgPunch;
         document.querySelector('#health1').value = game.player1.health;
         document.querySelector('#stamina2').value = game.player2.stamina;
         game.isGameFinished();
+        setTimeout(function() {game.player2.image = game.player2Img},300);
     }
 
     //logic for starter screen

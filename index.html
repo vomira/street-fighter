@@ -22,20 +22,24 @@
     <img class="logo" src="./assets/street-fighter-logo.png" alt="street-fighter">
     <div class="stats-header">
     <div class="stats-container">
+        <div class='stat-container'>
         <span>Health</span>
         <progress max=100 value=100 class="health" id="health1"></progress>
-        <br>
+        </div>  
+        <div class='stat-container'>
         <span>Stamina</span>
         <progress max=100 value=100 class="stamina" id="stamina1"></progress>
-        <br>
+        </div>
     </div>
         <div class="stats-container">
+            <div class='stat-container'>
             <span>Health</span>
             <progress max=100 value=100 class="health" id="health2"></progress>
-            <br>
+            </div>
+            <div class='stat-container'>
             <span>Stamina</span>
             <progress max=100 value=100 class="stamina" id="stamina2"></progress>
-            <br>
+            </div>
         </div>
     </div>
     <div id="sketch-holder">
@@ -54,15 +58,16 @@ punch: G
 block: T
         </div>
         <div class="controls" id="p2-controls">
-            Player 2
-jump: Up Arrow
-left: Left Arrow
-right: Right Arrow
-duck: Down Arrow
-
-kick: K
-punch: L
-block: I
+         <!-- <span>Player 2</span> -->
+         <ul>
+             <li>jump: Up</li>
+             <li>left: Left</li>
+             <li>right: Right</li>
+             <li>duck: Down</li>
+             <li>kick: K</li>
+             <li>punch: L</li>
+             <li>block: I</li>
+         </ul>
         </div>
     </div>
 </div>

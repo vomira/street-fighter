@@ -8,6 +8,9 @@ class Game {
         this.backgroundImg = loadImage('../assets/background_arena.jpg');
         this.player1Img = loadImage('../assets/chun-li-standing.gif');
         this.player2Img = loadImage('../assets/ryu-standing.gif');
+        this.player1ImgPunch = loadImage('../assets/chun-li-punch.gif');
+        this.player2ImgPunch = loadImage('../assets/ryu-punching.gif');
+        this.player2ImgKick = loadImage('../assets/ryu-kick.gif')
     }
 
     setupGame() {
@@ -41,10 +44,14 @@ class Game {
         if(game.player1.health <= 0) {
             setTimeout(function() {
             alert(`${game.player2.name} is the glorious winner!`)}, 300);
+            setup();
         }
         if(game.player2.health <= 0) {
             setTimeout(function() {
             alert(`${game.player1.name} is the glorious winner!`)}, 300);
+            setup();
         }
+
+    
     }
 }

@@ -18,7 +18,7 @@ body {
   .game-start {
     display: flex;
     position: absolute;
-    height: 850px;
+    height: 100vh;
     width: 1020px;
   }
   
@@ -41,6 +41,11 @@ body {
     margin-bottom: 40px;
   }
 
+.stats-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
 
 canvas {
       border: 2px solid;
@@ -49,7 +54,8 @@ canvas {
   }
 
 #game-container {
-    height: 800px;
+    height: 100vh;
+    width: 1000px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -60,7 +66,7 @@ canvas {
 }
 
 .logo {
-  height: 15vh;
+  height: 15%;
   margin: 20px;
 }
 
@@ -109,10 +115,19 @@ progress[value]::-webkit-progress-bar {
   .controls-container {
       display: flex;
       flex-direction: row;
-      width: 50vw;
+      width: 80%;
       align-items: center;
       justify-content: center;
-      margin: 20px;
+  }
+
+  .controls {
+    margin: 0px 15px;
+  }
+
+  .controls-container li {
+    float: left;
+    margin: 10px;
+    list-style: none;
   }
 
   .controls {

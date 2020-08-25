@@ -1,4 +1,7 @@
 const game = new Game();
+let gameStart = false;
+let gameOver = false;
+
 
 function preload() {
     game.preloadGame();
@@ -12,7 +15,11 @@ function setup() {
 }
 
 function draw() {
+    clear();
     game.drawGame();
+    // if(keyIsDown(73)) {
+    //     game.player2.block();
+    // }
     
 }
 
@@ -57,7 +64,7 @@ function keyPressed() {
         game.player2.moveRight();
     }
 
-    if(keyCode === 73) {
+    if(keyIsDown(73)) {
         game.player2.block();
         document.querySelector('#stamina2').value = game.player2.stamina;
     }
@@ -75,6 +82,13 @@ function keyPressed() {
         game.isGameFinished();
     }
 
-    
+    //logic for starter screen
+    if (keyCode === 13) {
+        gameStart = true;
+        document.querySelector(".game-start").style.display = "none";
+      }
+
+
+
 }
 

@@ -6,9 +6,16 @@
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
     <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
 </head>
 <body>
-    <img src="./assets/logo.jpeg" alt="street-fighter">
+    <!-- logic for making start-screen appear! -->
+    <div class = "game-start"> 
+        <img src="./assets/starter-screen.png" alt="start-scren">
+      </div>
+
+    <div id="game-container">
+    <img class="logo" src="./assets/street-fighter-logo.png" alt="street-fighter">
     <div class="stats-header">
     <div class="stats-container">
         <span>Health</span>
@@ -54,7 +61,7 @@ punch: L
 block: I
         </div>
     </div>
-
+</div>
         <script src='./js/player.js'></script>
         <script src='./js/background.js'></script>
         <script src='./js/game.js'></script>

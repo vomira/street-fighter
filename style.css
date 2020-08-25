@@ -3,13 +3,44 @@ html, body {
     height: 100%;
   }
   
-  body {
+body {
     margin: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-image: url('./assets/arcade-background.jpg');
+    background-size: 100vw 100vh;
+    font-family: 'Russo One', sans-serif;
+
   }
+
+  .game-start {
+    display: flex;
+    position: absolute;
+    height: 700px;
+    width: 1014px;
+  }
+  
+
+.logo {
+    height: 15vh;
+}
+
+canvas {
+      border: 2px solid;
+      border-radius: 4%;
+  }
+
+#game-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #7dceec;
+    border: 5px solid #398bba;
+    border-radius: 5%;
+}
 
 .stats-header {
     width: 70%;
@@ -50,4 +81,12 @@ progress[value]::-webkit-progress-bar {
   
       border-radius: 2px; 
       background-size: 35px 20px, 100% 100%, 100% 100%;
+  }
+
+  .controls-container {
+      display: flex;
+      flex-direction: row;
+      width: 50vw;
+      align-items: center;
+      justify-content: center;
   }

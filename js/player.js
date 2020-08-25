@@ -3,6 +3,7 @@ class Player {
         this.name = name;
         this.strength = strength;
         this.stamina = stamina;
+        this.staminaMax = stamina;
         this.health = 100;
         this.image;
         this.height = height/6;
@@ -59,28 +60,35 @@ class Player {
       } 
 
       block() {
-        console.log('blocked')
-        if(keyIsDown(73)) {
+        if(keyIsDown(73) || keyIsDown(84)) {
           this.stamina -= 1;
           return true;
-      }
-        return false
+        }
       }
 
 
       kick(otherPlayer) {
-        if(this.collision(otherPlayer) && !otherPlayer.block()) {
+        if(this.stamina > 0) {this.stamina -= 10};
+        if(this.collision(otherPlayer) && !otherPlayer.block() && this.stamina >= 0) {
+          console.log('kicked')
           otherPlayer.health -= this.strength/20;
-          this.stamina -= 10;
+          
         }
        
       }
 
       punch(otherPlayer) {
-        if(this.collision(otherPlayer) && !otherPlayer.block()) {
+        if(this.stamina > 0) {this.stamina -= 10};
+        if(this.collision(otherPlayer) && !otherPlayer.block() && this.stamina >= 0) {
+          console.log('punched')
           otherPlayer.health -= this.strength/20;
-          this.stamina -= 20;
+          
         }
        
+      }
+
+      staminaReload() {
+        if(this.stamina < this.staminaMax)
+        this.stamina += 2;
       }
     }

@@ -65,7 +65,11 @@ http://arcade.photonstorm.com/
 
 To Do
 
-- loose stamina on block
+- constantly loose stamina on block
 - Animations!
-- restore Stamina with time
 - special attacks
+- winner screen
+- background music
+- add gifs to start screen
+
+

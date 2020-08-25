@@ -6,8 +6,8 @@ class Game {
     preloadGame() {
         //preload images
         this.backgroundImg = loadImage('../assets/background_arena.jpg');
-        this.player1Img = loadImage('../assets/chun-li-stand-1.png');
-        this.player2Img = loadImage('../assets/ryu-starter.png')
+        this.player1Img = loadImage('../assets/chun-li-standing.gif');
+        this.player2Img = loadImage('../assets/ryu-standing.gif')
     }
 
     setupGame() {
@@ -27,6 +27,12 @@ class Game {
         this.background.drawBackground();
         this.player1.drawPlayer();
         this.player2.drawPlayer();
+        if(frameCount % 50 === 0) {
+            this.player1.staminaReload();
+            document.querySelector('#stamina1').value = game.player1.stamina;
+            this.player2.staminaReload();
+            document.querySelector('#stamina2').value = game.player2.stamina;
+          }
 
         //draw components
     }

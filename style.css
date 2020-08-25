@@ -18,8 +18,8 @@ body {
   .game-start {
     display: flex;
     position: absolute;
-    height: 700px;
-    width: 1014px;
+    height: 850px;
+    width: 1020px;
   }
   
   .gif-container {
@@ -41,24 +41,29 @@ body {
     margin-bottom: 40px;
   }
 
-.logo {
-    height: 15vh;
-}
 
 canvas {
       border: 2px solid;
       border-radius: 4%;
+      margin: 10px 0px;
   }
 
 #game-container {
+    height: 800px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     background-color: #7dceec;
     border: 5px solid #398bba;
     border-radius: 5%;
 }
+
+.logo {
+  height: 15vh;
+  margin: 20px;
+}
+
 
 .stats-header {
     width: 70%;
@@ -107,4 +112,9 @@ progress[value]::-webkit-progress-bar {
       width: 50vw;
       align-items: center;
       justify-content: center;
+      margin: 20px;
+  }
+
+  .controls {
+    width: 50%;
   }

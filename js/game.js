@@ -1,16 +1,16 @@
 class Game {
     constructor() {
-
+        this.gamePhase = 0;
     }
 
     preloadGame() {
         //preload images
-        this.backgroundImg = loadImage('../assets/background_arena.jpg');
-        this.player1Img = loadImage('../assets/chun-li-standing.gif');
-        this.player2Img = loadImage('../assets/ryu-standing.gif');
-        this.player1ImgPunch = loadImage('../assets/chun-li-punch.gif');
-        this.player2ImgPunch = loadImage('../assets/ryu-punching.gif');
-        this.player2ImgKick = loadImage('../assets/ryu-kick.gif')
+        this.backgroundImg = loadImage('assets/background_arena.jpg');
+        this.player1Img = loadImage('assets/chun-li-standing.gif');
+        this.player2Img = loadImage('assets/ryu-standing.gif');
+        this.player1ImgPunch = loadImage('assets/chun-li-punch.gif');
+        this.player2ImgPunch = loadImage('assets/ryu-punching.gif');
+        this.player2ImgKick = loadImage('assets/ryu-kick.gif')
     }
 
     setupGame() {
@@ -23,7 +23,8 @@ class Game {
         this.player2.image = this.player2Img;
         document.querySelector('#stamina1').value = game.player1.stamina;
         document.querySelector('#stamina2').value = game.player2.stamina;
-
+        document.querySelector('#health1').value = game.player1.health;
+        document.querySelector('#health2').value = game.player2.health;
     }
 
     drawGame() {
@@ -42,14 +43,11 @@ class Game {
 
     isGameFinished() {
         if(game.player1.health <= 0) {
-            setTimeout(function() {
-            alert(`${game.player2.name} is the glorious winner!`)}, 300);
-            setup();
+            this.gamePhase = 2;
+
         }
         if(game.player2.health <= 0) {
-            setTimeout(function() {
-            alert(`${game.player1.name} is the glorious winner!`)}, 300);
-            setup();
+            this.gamePhase = 3;
         }
 
     

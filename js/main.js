@@ -1,6 +1,5 @@
 const game = new Game();
-let gameStart = false;
-let gameOver = false;
+
 
 
 function preload() {
@@ -11,6 +10,7 @@ function setup() {
     const canvas = createCanvas(1000, 400);
     canvas.parent('sketch-holder');
     game.setupGame();
+
    
 }
 
@@ -20,7 +20,12 @@ function draw() {
     // if(keyIsDown(73)) {
     //     game.player2.block();
     // }
-    
+    if(game.gamePhase === 2) {
+        document.querySelector('#game-end-ryu').style.display = 'flex';
+    }
+    if(game.gamePhase === 3) {
+        document.querySelector('#game-end-chun-li').style.display = 'flex';
+    }
 }
 
 function keyPressed() {
@@ -90,8 +95,16 @@ function keyPressed() {
 
     //logic for starter screen
     if (keyCode === 13) {
-        gameStart = true;
-        document.querySelector(".game-start").style.display = "none";
+        if(game.gamePhase === 0) {
+        game.gamePhase = 1;
+        document.querySelector("#game-start").style.display = "none";}
+        if(game.gamePhase === 2 || game.gamePhase === 3) {
+            document.querySelector("#game-end-ryu").style.display = "none";
+            document.querySelector("#game-end-chun-li").style.display = "none";
+            setup();
+            game.gamePhase = 0;
+
+        }
       }
 
 

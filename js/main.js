@@ -57,7 +57,7 @@ function keyPressed() {
     if(keyCode === 87) {
         game.player1.jump();
         game.player1.image = game.player1ImgJump;
-        setTimeout(function() {game.player1.image = game.player1ImgRight},900);
+        setTimeout(function() {setDirectionImgP1()},900);
     }
 
     if(keyCode === 65) {
@@ -90,13 +90,17 @@ function keyPressed() {
         document.querySelector('#health2').value = game.player2.health;
         document.querySelector('#stamina1').value = game.player1.stamina;
         game.isGameFinished();
-        setTimeout(function() {game.player1.image = game.player1ImgRight},200);
+        setTimeout(function() {
+            setDirectionImgP1()
+        },200);
     }
 
     if(keyCode === 38) {
         game.player2.jump();
         game.player2.image = game.player2ImgJump;
-        setTimeout(function() {game.player2.image = game.player2ImgRight},1000);
+        setTimeout(function() {
+            setDirectionImgP2();
+        },1000);
     }
 
     if(keyCode === 37) {
@@ -119,7 +123,9 @@ function keyPressed() {
         document.querySelector('#health1').value = game.player1.health;
         document.querySelector('#stamina2').value = game.player2.stamina;
         game.isGameFinished();
-        setTimeout(function() {game.player2.image = game.player2ImgRight},200);
+        setTimeout(function() {
+            setDirectionImgP2()
+        },200);
     }
     if(keyCode === 76) {
         game.player2.punch(game.player1);
@@ -127,7 +133,9 @@ function keyPressed() {
         document.querySelector('#health1').value = game.player1.health;
         document.querySelector('#stamina2').value = game.player2.stamina;
         game.isGameFinished();
-        setTimeout(function() {game.player2.image = game.player2ImgRight},200);
+        setTimeout(function() {
+            setDirectionImgP2()
+        },200);
     }
 
     //logic for starter screen

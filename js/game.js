@@ -5,12 +5,12 @@ class Game {
 
     preloadGame() {
         //preload images
-        this.backgroundImg = loadImage('assets/background_arena.jpg');
-        this.player1Img = loadImage('assets/chun-li-standing.gif');
-        this.player2Img = loadImage('assets/ryu-standing.gif');
-        this.player1ImgPunch = loadImage('assets/chun-li-punch.gif');
-        this.player2ImgPunch = loadImage('assets/ryu-punching.gif');
-        this.player2ImgKick = loadImage('assets/ryu-kick.gif')
+        this.backgroundImg = loadImage('../assets/background_arena.jpg');
+        this.player1Img = loadImage('../assets/chun-li-standing.gif');
+        this.player2Img = loadImage('../assets/ryu-standing.gif');
+        this.player1ImgPunch = loadImage('../assets/chun-li-punch.gif');
+        this.player2ImgPunch = loadImage('../assets/ryu-punching.gif');
+        this.player2ImgKick = loadImage('../assets/ryu-kick.gif')
     }
 
     setupGame() {

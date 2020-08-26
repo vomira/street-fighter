@@ -79,10 +79,12 @@ class Player {
       }
 
       punch(otherPlayer) {
+        console.log('punch called')
         if(this.stamina > 0) {
           this.stamina -= 10
+          console.log('stamina substracted')
         };
-        if(this.collision(otherPlayer) && !otherPlayer.block() && this.stamina >= 0) {
+        if(this.collision(otherPlayer) && !otherPlayer.blocked && this.stamina >= 0) {
           console.log('punched')
           otherPlayer.health -= this.strength/20;
           

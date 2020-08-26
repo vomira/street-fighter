@@ -50,7 +50,7 @@ body {
 canvas {
       border: 2px solid;
       border-radius: 4%;
-      margin: 10px 0px;
+      margin-top: 10px;
   }
 
 #game-container {
@@ -120,13 +120,22 @@ progress[value]::-webkit-progress-bar {
       justify-content: center;
   }
 
+
   .controls {
-    margin: 0px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    padding: none;
   }
 
   .controls-container li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     float: left;
-    margin: 10px;
+    padding: 5px;
     list-style: none;
   }
 

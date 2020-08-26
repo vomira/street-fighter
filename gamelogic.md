@@ -65,10 +65,9 @@ http://arcade.photonstorm.com/
 
 To Do
 
-- constantly loose stamina on block
 - Animations!
 - special attacks
-- winner screen
 - background music
+- make characters turn towards each other
 
 

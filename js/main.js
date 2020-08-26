@@ -50,16 +50,16 @@ function keyPressed() {
     }
 
     if(keyCode === 84) {
-        game.player1.block();
-        document.querySelector('#stamina1').value = game.player1.stamina;
         game.player1.image = game.player1ImgBlock;
     }
     
     if(keyCode === 70) {
         game.player1.kick(game.player2);
+        game.player1.image = game.player1ImgKick;
         document.querySelector('#health2').value = game.player2.health;
         document.querySelector('#stamina1').value = game.player1.stamina;
         game.isGameFinished();
+        setTimeout(function() {game.player1.image = game.player1Img},600);
     }
     if(keyCode === 71) {
         game.player1.punch(game.player2);
@@ -84,8 +84,6 @@ function keyPressed() {
     }
 
     if(keyIsDown(73)) {
-        game.player2.block();
-        document.querySelector('#stamina2').value = game.player2.stamina;
         game.player2.image = game.player2ImgBlock;
     }
 
@@ -111,7 +109,6 @@ function keyPressed() {
         if(game.gamePhase === 0) {
         game.gamePhase = 1;
         document.querySelector("#game-start").style.display = "none";
-        backgroundSound.play();
     }
         
         if(game.gamePhase === 2 || game.gamePhase === 3) {
@@ -129,10 +126,12 @@ function keyReleased() {
     if(keyCode === 84) {
         console.log('block released!')
         game.player1.image = game.player1Img;
+        game.player1.blocked = false;
     }
     if(keyCode === 73) {
         console.log('block released!')
         game.player2.image = game.player2Img;
+        game.player2.blocked = false;
     }
 }
 

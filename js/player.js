@@ -12,6 +12,7 @@ class Player {
         this.velocity = 0;
         this.x = x;
         this.y = height/2;
+        this.blocked = false;
     }
 
     drawPlayer() {
@@ -61,13 +62,15 @@ class Player {
 
       block() {
           this.stamina -= 0.1;
-          return true;
+          return this.blocked = true;
         }
 
 
       kick(otherPlayer) {
-        if(this.stamina > 0) {this.stamina -= 10};
-        if(this.collision(otherPlayer) && !otherPlayer.block() && this.stamina >= 0) {
+        if(this.stamina > 0) {
+          this.stamina -= 10
+        };
+        if(this.collision(otherPlayer) && !otherPlayer.blocked && this.stamina >= 0) {
           console.log('kicked')
           otherPlayer.health -= this.strength/20;
           
@@ -76,7 +79,9 @@ class Player {
       }
 
       punch(otherPlayer) {
-        if(this.stamina > 0) {this.stamina -= 10};
+        if(this.stamina > 0) {
+          this.stamina -= 10
+        };
         if(this.collision(otherPlayer) && !otherPlayer.block() && this.stamina >= 0) {
           console.log('punched')
           otherPlayer.health -= this.strength/20;

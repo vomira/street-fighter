@@ -20,6 +20,7 @@ body {
     position: absolute;
     height: 100vh;
     width: 1020px;
+  
   }
   
   .gif-container {
@@ -67,7 +68,8 @@ canvas {
 
 .logo {
   height: 15%;
-  margin: 20px;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 
 
@@ -139,6 +141,6 @@ progress[value]::-webkit-progress-bar {
     list-style: none;
   }
 
-  .controls {
-    width: 50%;
+  .controls-container img {
+    padding: 5px;
   }

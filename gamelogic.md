@@ -70,6 +70,5 @@ To Do
 - special attacks
 - winner screen
 - background music
-- add gifs to start screen
 
 

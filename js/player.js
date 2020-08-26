@@ -13,9 +13,10 @@ class Player {
         this.x = x;
         this.y = height/2;
         this.blocked = false;
+        this.direction;
     }
 
-    drawPlayer() {
+    drawPlayer(otherPlayer) {
         //velocity would always pull the figure down (adding to y)
         this.velocity += this.gravity;
         this.y += this.velocity;
@@ -23,7 +24,6 @@ class Player {
         if(this.y >= height/2) {
           this.y = height/2;
         }
-
         image(this.image, this.x, this.y, this.height, this.width);
         // draw the player + jump logic with velocity
       }
@@ -96,4 +96,11 @@ class Player {
         if(this.stamina < this.staminaMax)
         this.stamina += 2;
       }
+      setPlayerDirection(otherPlayer) {
+        if(this.x < otherPlayer.x) {
+            this.direction = 'right';
+        } else {
+            this.direction = 'left';
+        }
+    }
     }

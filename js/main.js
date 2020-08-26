@@ -35,18 +35,39 @@ function draw() {
     }
 }
 
+function setDirectionImgP1() {
+    game.player1.setPlayerDirection(game.player2);
+        if(game.player1.direction === 'right') {
+            game.player1.image = game.player1ImgRight;
+        } else {
+            game.player1.image = game.player1ImgLeft;
+        }
+}
+
+function setDirectionImgP2() {
+    game.player2.setPlayerDirection(game.player1);
+        if(game.player2.direction === 'right') {
+            game.player2.image = game.player2ImgRight;
+        } else {
+            game.player2.image = game.player2ImgLeft;
+        }
+}
+
 function keyPressed() {
     if(keyCode === 87) {
         game.player1.jump();
         game.player1.image = game.player1ImgJump;
-        setTimeout(function() {game.player1.image = game.player1Img},900);
+        setTimeout(function() {game.player1.image = game.player1ImgRight},900);
     }
 
     if(keyCode === 65) {
         game.player1.moveLeft();
+        setDirectionImgP1();   
     }
+
     if(keyCode === 68) {
         game.player1.moveRight();
+        setDirectionImgP1();
     }
 
     if(keyCode === 84) {
@@ -59,7 +80,9 @@ function keyPressed() {
         document.querySelector('#health2').value = game.player2.health;
         document.querySelector('#stamina1').value = game.player1.stamina;
         game.isGameFinished();
-        setTimeout(function() {game.player1.image = game.player1Img},600);
+        setTimeout(function() {
+            setDirectionImgP1();
+        },150);
     }
     if(keyCode === 71) {
         game.player1.punch(game.player2);
@@ -67,20 +90,23 @@ function keyPressed() {
         document.querySelector('#health2').value = game.player2.health;
         document.querySelector('#stamina1').value = game.player1.stamina;
         game.isGameFinished();
-        setTimeout(function() {game.player1.image = game.player1Img},300);
+        setTimeout(function() {game.player1.image = game.player1ImgRight},200);
     }
 
     if(keyCode === 38) {
         game.player2.jump();
         game.player2.image = game.player2ImgJump;
-        setTimeout(function() {game.player2.image = game.player2Img},1000);
+        setTimeout(function() {game.player2.image = game.player2ImgRight},1000);
     }
 
     if(keyCode === 37) {
         game.player2.moveLeft();
+        setDirectionImgP2();
+        
     }
     if(keyCode === 39) {
         game.player2.moveRight();
+        setDirectionImgP2();
     }
 
     if(keyIsDown(73)) {
@@ -93,7 +119,7 @@ function keyPressed() {
         document.querySelector('#health1').value = game.player1.health;
         document.querySelector('#stamina2').value = game.player2.stamina;
         game.isGameFinished();
-        setTimeout(function() {game.player2.image = game.player2Img},300);
+        setTimeout(function() {game.player2.image = game.player2ImgRight},200);
     }
     if(keyCode === 76) {
         game.player2.punch(game.player1);
@@ -101,7 +127,7 @@ function keyPressed() {
         document.querySelector('#health1').value = game.player1.health;
         document.querySelector('#stamina2').value = game.player2.stamina;
         game.isGameFinished();
-        setTimeout(function() {game.player2.image = game.player2Img},300);
+        setTimeout(function() {game.player2.image = game.player2ImgRight},200);
     }
 
     //logic for starter screen

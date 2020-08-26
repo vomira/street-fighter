@@ -8,8 +8,13 @@ class Game {
         this.player1Img = loadImage('assets/chun-li-standing.gif');
         this.player2Img = loadImage('assets/ryu-standing.gif');
         this.player1ImgPunch = loadImage('assets/chun-li-punch.gif');
+        this.player1ImgJump = loadImage('assets/chun-li-jump-right.gif');
+        this.player1ImgBlock = loadImage('assets/chun-li-block.png')
         this.player2ImgPunch = loadImage('assets/ryu-punching.gif');
         this.player2ImgKick = loadImage('assets/ryu-kick.gif');
+        this.player2ImgJump = loadImage('assets/ryu-jump-left.gif');
+        this.player2ImgBlock = loadImage('assets/ryu-block-left.png');
+    
     }
 
     setupGame() {
@@ -36,8 +41,6 @@ class Game {
             this.player2.staminaReload();
             document.querySelector('#stamina2').value = game.player2.stamina;
           }
-
-        //draw components
     }
 
     isGameFinished() {

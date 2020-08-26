@@ -4,22 +4,29 @@ const game = new Game();
 
 function preload() {
     game.preloadGame();
+
 }
 
 function setup() {
     const canvas = createCanvas(1000, 400);
     canvas.parent('sketch-holder');
     game.setupGame();
-
-   
 }
 
 function draw() {
     clear();
     game.drawGame();
-    // if(keyIsDown(73)) {
-    //     game.player2.block();
-    // }
+
+    if (keyIsDown(84)) {
+        game.player1.block();
+        document.querySelector('#stamina1').value = game.player1.stamina;
+      }
+
+    if (keyIsDown(73)) {
+        game.player2.block();
+        document.querySelector('#stamina2').value = game.player2.stamina;
+      }
+
     if(game.gamePhase === 2) {
         document.querySelector('#game-end-ryu').style.display = 'flex';
     }
@@ -31,6 +38,8 @@ function draw() {
 function keyPressed() {
     if(keyCode === 87) {
         game.player1.jump();
+        game.player1.image = game.player1ImgJump;
+        setTimeout(function() {game.player1.image = game.player1Img},900);
     }
 
     if(keyCode === 65) {
@@ -43,6 +52,7 @@ function keyPressed() {
     if(keyCode === 84) {
         game.player1.block();
         document.querySelector('#stamina1').value = game.player1.stamina;
+        game.player1.image = game.player1ImgBlock;
     }
     
     if(keyCode === 70) {
@@ -62,6 +72,8 @@ function keyPressed() {
 
     if(keyCode === 38) {
         game.player2.jump();
+        game.player2.image = game.player2ImgJump;
+        setTimeout(function() {game.player2.image = game.player2Img},1000);
     }
 
     if(keyCode === 37) {
@@ -74,6 +86,7 @@ function keyPressed() {
     if(keyIsDown(73)) {
         game.player2.block();
         document.querySelector('#stamina2').value = game.player2.stamina;
+        game.player2.image = game.player2ImgBlock;
     }
 
     if(keyCode === 75) {
@@ -97,7 +110,10 @@ function keyPressed() {
     if (keyCode === 13) {
         if(game.gamePhase === 0) {
         game.gamePhase = 1;
-        document.querySelector("#game-start").style.display = "none";}
+        document.querySelector("#game-start").style.display = "none";
+        backgroundSound.play();
+    }
+        
         if(game.gamePhase === 2 || game.gamePhase === 3) {
             console.log(game.gamePhase);
             document.querySelector("#game-end-ryu").style.display = "none";
@@ -107,8 +123,16 @@ function keyPressed() {
 
         }
       }
+}
 
-
-
+function keyReleased() {
+    if(keyCode === 84) {
+        console.log('block released!')
+        game.player1.image = game.player1Img;
+    }
+    if(keyCode === 73) {
+        console.log('block released!')
+        game.player2.image = game.player2Img;
+    }
 }
 

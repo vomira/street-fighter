@@ -60,11 +60,9 @@ class Player {
       } 
 
       block() {
-        if(keyIsDown(73) || keyIsDown(84)) {
-          this.stamina -= 1;
+          this.stamina -= 0.1;
           return true;
         }
-      }
 
 
       kick(otherPlayer) {

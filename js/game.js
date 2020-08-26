@@ -8,7 +8,7 @@ class Game {
         this.player1Img = loadImage('assets/chun-li-standing.gif');
         this.player2Img = loadImage('assets/ryu-standing.gif');
         this.player1ImgPunch = loadImage('assets/chun-li-punch.gif');
-        this.player1ImgKick = loadImage('../assets/chun-li-kick-right.gif');
+        this.player1ImgKick = loadImage('assets/chun-li-kick-right.gif');
         this.player1ImgJump = loadImage('assets/chun-li-jump-right.gif');
         this.player1ImgBlock = loadImage('assets/chun-li-block.png')
         this.player2ImgPunch = loadImage('assets/ryu-punching.gif');

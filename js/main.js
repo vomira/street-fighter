@@ -99,6 +99,7 @@ function keyPressed() {
         game.gamePhase = 1;
         document.querySelector("#game-start").style.display = "none";}
         if(game.gamePhase === 2 || game.gamePhase === 3) {
+            console.log(game.gamePhase);
             document.querySelector("#game-end-ryu").style.display = "none";
             document.querySelector("#game-end-chun-li").style.display = "none";
             setup();

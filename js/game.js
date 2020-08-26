@@ -4,7 +4,6 @@ class Game {
     }
 
     preloadGame() {
-        //preload images
         this.backgroundImg = loadImage('../assets/background_arena.jpg');
         this.player1Img = loadImage('../assets/chun-li-standing.gif');
         this.player2Img = loadImage('../assets/ryu-standing.gif');
@@ -44,7 +43,6 @@ class Game {
     isGameFinished() {
         if(game.player1.health <= 0) {
             this.gamePhase = 2;
-
         }
         if(game.player2.health <= 0) {
             this.gamePhase = 3;

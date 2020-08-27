@@ -1,13 +1,17 @@
 const game = new Game();
-
+let last4KeysP1 = [];
+let last4KeysP2 = [];
 
 
 function preload() {
+    soundFormats('mp3');
+    backgroundSong = loadSound('../sounds/honda-background.mp3')
     game.preloadGame();
 
 }
 
 function setup() {
+    
     const canvas = createCanvas(1000, 400);
     canvas.parent('sketch-holder');
     game.setupGame();
@@ -21,11 +25,11 @@ function draw() {
         game.player1.block();
         document.querySelector('#stamina1').value = game.player1.stamina;
       }
-
     if (keyIsDown(73)) {
         game.player2.block();
         document.querySelector('#stamina2').value = game.player2.stamina;
       }
+    
 
     if(game.gamePhase === 2) {
         document.querySelector('#game-end-ryu').style.display = 'flex';
@@ -34,6 +38,7 @@ function draw() {
         document.querySelector('#game-end-chun-li').style.display = 'flex';
     }
 }
+
 
 function setDirectionImgP1() {
     game.player1.setPlayerDirection(game.player2);
@@ -53,8 +58,30 @@ function setDirectionImgP2() {
         }
 }
 
+function addToKeyArr(keyArr) {
+    keyArr.push(keyCode);
+    if(keyArr.length > 4) {
+        keyArr.splice(0,1);
+    }
+}
+
+function isSpecialKomboPressed(keyComboArr, lastKeysArr) {
+    let match;
+    for(let index in keyComboArr) {
+        if(keyComboArr[index] !== lastKeysArr[index]) {
+            return match = false;
+        } else {
+            match = true;
+        }
+    }
+    return match;
+}
+
 function keyPressed() {
+    
+
     if(keyCode === 87) {
+        addToKeyArr(last4KeysP1);
         game.player1.jump();
         if(game.player1.direction === 'right') {
             game.player1.image = game.player1ImgJumpRight;
@@ -64,17 +91,37 @@ function keyPressed() {
         setTimeout(function() {setDirectionImgP1()},900);
     }
 
+    if(keyCode === 83) {
+        addToKeyArr(last4KeysP1); 
+    }
+
     if(keyCode === 65) {
-        game.player1.moveLeft();
-        setDirectionImgP1();   
+        addToKeyArr(last4KeysP1);
+        if(isSpecialKomboPressed([83, 84, 70, 65], last4KeysP1)) {
+            game.player1.image = game.player1ImgSpecialAttackRight;
+            game.ball1.ballImage = game.player1ImgSpecialAttackBallRight;
+            game.player1.specialAttack(game.player2);
+            document.querySelector('#health2').value = game.player2.health;
+            document.querySelector('#stamina1').value = game.player1.stamina;
+            setTimeout(function() {
+                setDirectionImgP1();
+                game.ball1.ballImage = game.emptyHadokenBall;
+            },1100);
+            last4KeysP1 = [];
+        } else {
+            game.player1.moveLeft();
+            setDirectionImgP1();   
+        };
     }
 
     if(keyCode === 68) {
+        addToKeyArr(last4KeysP1);
         game.player1.moveRight();
         setDirectionImgP1();
     }
 
     if(keyCode === 84) {
+        addToKeyArr(last4KeysP1);
         if(game.player1.direction === 'right') {
             game.player1.image = game.player1ImgBlockRight;
         } else {
@@ -83,6 +130,7 @@ function keyPressed() {
     }
     
     if(keyCode === 70) {
+        addToKeyArr(last4KeysP1);
         game.player1.kick(game.player2);
         if(game.player1.direction === 'right') {
             game.player1.image = game.player1ImgKickRight;
@@ -97,6 +145,7 @@ function keyPressed() {
         },150);
     }
     if(keyCode === 71) {
+        addToKeyArr(last4KeysP1);
         game.player1.punch(game.player2);
         if(game.player1.direction === 'right') {
             game.player1.image = game.player1ImgPunchRight;
@@ -112,6 +161,7 @@ function keyPressed() {
     }
 
     if(keyCode === 38) {
+        addToKeyArr(last4KeysP2);
         game.player2.jump();
         if(game.player2.direction === 'right') {
             game.player2.image = game.player2ImgJumpRight;
@@ -123,17 +173,39 @@ function keyPressed() {
         },1000);
     }
 
+    if(keyCode === 40) {
+        addToKeyArr(last4KeysP2); 
+    }
+
+
     if(keyCode === 37) {
+        addToKeyArr(last4KeysP2);
         game.player2.moveLeft();
         setDirectionImgP2();
         
     }
     if(keyCode === 39) {
+        addToKeyArr(last4KeysP2);
+        if(isSpecialKomboPressed([76, 40, 39, 39], last4KeysP2)) {
+            game.player2.image = game.player2ImgSpecialAttackLeft;
+            game.ball2.ballImage = game.player2ImgSpecialAttackBallLeft;
+            game.player2.specialAttack(game.player1);
+            image(game.player2ImgSpecialAttackBallLeft, game.player2.x - 200, game.player2.y, game.player2.width, game.player2.height);
+            document.querySelector('#health1').value = game.player1.health;
+            document.querySelector('#stamina2').value = game.player2.stamina;
+            setTimeout(function() {
+                setDirectionImgP2();
+                game.ball2.ballImage = game.emptyHadokenBall;
+            },1000);
+            last4KeysP2 = [];
+        } else {
         game.player2.moveRight();
         setDirectionImgP2();
     }
+    }
 
     if(keyIsDown(73)) {
+        addToKeyArr(last4KeysP2);
         if(game.player2.direction === 'right') {
             game.player2.image = game.player2ImgBlockRight;
         } else {
@@ -142,6 +214,7 @@ function keyPressed() {
     }
 
     if(keyCode === 75) {
+        addToKeyArr(last4KeysP2);
         game.player2.kick(game.player1);
         if(game.player2.direction === 'right') {
             game.player2.image = game.player2ImgKickRight;
@@ -156,6 +229,7 @@ function keyPressed() {
         },200);
     }
     if(keyCode === 76) {
+        addToKeyArr(last4KeysP2);
         game.player2.punch(game.player1);
         if(game.player2.direction === 'right') {
             game.player2.image = game.player2ImgPunchRight;
@@ -175,10 +249,10 @@ function keyPressed() {
         if(game.gamePhase === 0) {
         game.gamePhase = 1;
         document.querySelector("#game-start").style.display = "none";
+        backgroundSong.play();
     }
         
         if(game.gamePhase === 2 || game.gamePhase === 3) {
-            console.log(game.gamePhase);
             document.querySelector("#game-end-ryu").style.display = "none";
             document.querySelector("#game-end-chun-li").style.display = "none";
             setup();
@@ -186,8 +260,9 @@ function keyPressed() {
 
         }
       }
+      console.log(last4KeysP1);
+    console.log(last4KeysP2);
 }
-
 function keyReleased() {
     if(keyCode === 84) {
         console.log('block released!')

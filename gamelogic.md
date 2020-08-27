@@ -48,6 +48,8 @@ kick: F
 punch: G
 block: T
 
+Special Attack: [S, T, F, A] --> KeyCode [83, 84, 70, 65]
+
 Player 2
 jump: Up Arrow
 left: Left Arrow
@@ -57,6 +59,8 @@ duck: Down Arrow
 kick: K
 punch: L
 block: I
+
+Special Attack: [L, Down, Right, Right] --> KeyCode [76, 40, 39, 39]
 
 
 Assets:
@@ -68,10 +72,7 @@ To Do
 - Animations!
 - special attacks
 - background music
-- make characters turn towards each other
 - fix Ryu jump animation
-- make animations for both directions
-- disappearance after block bug
 
 
 

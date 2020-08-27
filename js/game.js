@@ -17,6 +17,7 @@ class Game {
         this.player1ImgJumpLeft = loadImage('assets/chun-li-jump-left.gif');
         this.player1ImgBlockRight = loadImage('assets/chun-li-block-right.png');
         this.player1ImgBlockLeft = loadImage('assets/chun-li-block-left.png');
+        this.player1ImgSpecialAttackRight = loadImage('assets/chun-li-special-attack-right.gif');
         this.player2ImgPunchLeft = loadImage('assets/ryu-punch-left.png');
         this.player2ImgPunchRight = loadImage('assets/ryu-punch-right.png')
         this.player2ImgKickLeft = loadImage('assets/ryu-kick-left.png');
@@ -24,7 +25,11 @@ class Game {
         this.player2ImgJumpLeft = loadImage('assets/ryu-jump-left.gif');
         this.player2ImgJumpRight = loadImage('assets/ryu-jump-right.gif')
         this.player2ImgBlockLeft = loadImage('assets/ryu-block-left.png');
-        this.player2ImgBlockRight = loadImage('assets/ryu-block-right.png')
+        this.player2ImgBlockRight = loadImage('assets/ryu-block-right.png');
+        this.player2ImgSpecialAttackLeft = loadImage('assets/ryu-hadoken-wo-ball-left.gif')
+        this.player2ImgSpecialAttackBallLeft = loadImage('assets/hadoken-ball-left.gif')
+        this.emptyHadokenBall = loadImage('assets/empty-hadoken-ball.png');
+        this.player1ImgSpecialAttackBallRight = loadImage('../assets/haduken-ball-right-chun.gif');
     
     }
 
@@ -32,11 +37,17 @@ class Game {
         //add components to the game
         this.background = new Background();
         this.background.image = this.backgroundImg;
-        this.player1 = new Player('Chun Li', 80, 100, 100);
+        this.player1 = new Player('Chun Li', 80, 100, 100, 200);
         this.player1.image = this.player1ImgRight;
         this.player1.direction = 'right';
+        this.ball1 = new Ball(this.player1.x + 150);
+        this.ball1.ballImage = this.emptyHadokenBall;
+        this.ball1.direction = 'right';
         this.player2 = new Player('Ryu', 100, 80, width-200);
         this.player2.image = this.player2ImgLeft;
+        this.ball2 = new Ball(this.player2.x - 150);
+        this.ball2.ballImage = this.emptyHadokenBall;
+        this.ball2.direction = 'left';
         this.player2.direction = 'left';
         document.querySelector('#stamina1').value = game.player1.stamina;
         document.querySelector('#stamina2').value = game.player2.stamina;
@@ -48,6 +59,8 @@ class Game {
         this.background.drawBackground();
         this.player1.drawPlayer();
         this.player2.drawPlayer();
+        this.ball1.drawBall();
+        this.ball2.drawBall();
         if(frameCount % 50 === 0) {
             this.player1.staminaReload();
             document.querySelector('#stamina1').value = game.player1.stamina;

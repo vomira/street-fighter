@@ -79,15 +79,25 @@ class Player {
       }
 
       punch(otherPlayer) {
-        console.log('punch called')
-        if(this.stamina > 0) {
+        if(this.stamina >= 10) {
           this.stamina -= 10
-          console.log('stamina substracted')
         };
-        if(this.collision(otherPlayer) && !otherPlayer.blocked && this.stamina >= 0) {
+        if(this.collision(otherPlayer) && !otherPlayer.blocked && this.stamina > -1) {
           console.log('punched')
           otherPlayer.health -= this.strength/20;
           
+        }
+       
+      }
+
+      specialAttack(otherPlayer) {
+        console.log('special attack called!')
+        if(this.stamina >= 20) {
+          this.stamina -= 20;
+        };
+        if(this.stamina > -1) {
+          otherPlayer.health -= this.strength/10;
+          console.log('special attack done!')
         }
        
       }

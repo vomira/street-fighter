@@ -18,6 +18,9 @@ class Game {
         this.player1ImgBlockRight = loadImage('assets/chun-li-block-right.png');
         this.player1ImgBlockLeft = loadImage('assets/chun-li-block-left.png');
         this.player1ImgSpecialAttackRight = loadImage('assets/chun-li-special-attack-right.gif');
+        this.player1ImgSpecialAttackLeft = loadImage('assets/chun-li-special-attack-left.gif');
+        this.player1ImgSpecialAttackBallRight = loadImage('assets/haduken-ball-right-chun.gif');
+        this.player1ImgSpecialAttackBallLeft = loadImage('../assets/haduken-ball-left-chun.gif');
         this.player2ImgPunchLeft = loadImage('assets/ryu-punch-left.png');
         this.player2ImgPunchRight = loadImage('assets/ryu-punch-right.png')
         this.player2ImgKickLeft = loadImage('assets/ryu-kick-left.png');
@@ -26,15 +29,18 @@ class Game {
         this.player2ImgJumpRight = loadImage('assets/ryu-jump-right.gif')
         this.player2ImgBlockLeft = loadImage('assets/ryu-block-left.png');
         this.player2ImgBlockRight = loadImage('assets/ryu-block-right.png');
-        this.player2ImgSpecialAttackLeft = loadImage('assets/ryu-hadoken-wo-ball-left.gif')
-        this.player2ImgSpecialAttackBallLeft = loadImage('assets/hadoken-ball-left.gif')
+        this.player2ImgSpecialAttackLeft = loadImage('assets/ryu-hadoken-wo-ball-left.gif');
+        this.player2ImgSpecialAttackBallLeft = loadImage('assets/hadoken-ball-left.gif');
+        this.player2ImgDamagedRight = loadImage('assets/ryu-damaged-left.gif');
         this.emptyHadokenBall = loadImage('assets/empty-hadoken-ball.png');
-        this.player1ImgSpecialAttackBallRight = loadImage('assets/haduken-ball-right-chun.gif');
+        
+    
         
        
         this.starter = loadSound('sounds/opening.mp3');
         this.backgroundSong = loadSound('sounds/honda-background.mp3');
         this.endingSong = loadSound('sounds/honda-ending.mp3');
+        this.hadokenRyu = loadSound('sounds/ryuken-hadoken.mp3');
     }
 
     setupGame() {

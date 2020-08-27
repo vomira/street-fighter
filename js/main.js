@@ -101,14 +101,21 @@ function keyPressed() {
     if(keyCode === 65) {
         addToKeyArr(last4KeysP1);
         if(isSpecialKomboPressed([83, 84, 70, 65], last4KeysP1)) {
-            game.player1.image = game.player1ImgSpecialAttackRight;
-            game.ball1.x = game.player1.x + 150;
-            game.ball1.ballImage = game.player1ImgSpecialAttackBallRight;
+            if(game.player1.direction === 'right') {
+                game.player1.image = game.player1ImgSpecialAttackRight;
+                game.ball1.ballImage = game.player1ImgSpecialAttackBallRight;
+                game.ball1.x = game.player1.x + game.player1.height + 50;
+            } else {
+                game.player1.image = game.player1ImgSpecialAttackLeft;
+                game.ball1.ballImage = game.player1ImgSpecialAttackBallLeft;
+                game.ball1.x = game.player1.x - game.ball1.height - 50;
+            }
             game.player1.specialAttack(game.player2);
             document.querySelector('#health2').value = game.player2.health;
             document.querySelector('#stamina1').value = game.player1.stamina;
             setTimeout(function() {
                 setDirectionImgP1();
+                setDirectionImgP2();
                 game.ball1.ballImage = game.emptyHadokenBall;
             },1100);
             last4KeysP1 = [];
@@ -195,6 +202,7 @@ function keyPressed() {
             game.ball2.x = game.player2.x-150;
             game.ball2.ballImage = game.player2ImgSpecialAttackBallLeft;
             game.player2.specialAttack(game.player1);
+            game.hadokenRyu.play(); 
             image(game.player2ImgSpecialAttackBallLeft, game.player2.x - 200, game.player2.y, game.player2.width, game.player2.height);
             document.querySelector('#health1').value = game.player1.health;
             document.querySelector('#stamina2').value = game.player2.stamina;

@@ -29,7 +29,7 @@ class Game {
         this.player2ImgSpecialAttackLeft = loadImage('assets/ryu-hadoken-wo-ball-left.gif')
         this.player2ImgSpecialAttackBallLeft = loadImage('assets/hadoken-ball-left.gif')
         this.emptyHadokenBall = loadImage('assets/empty-hadoken-ball.png');
-        this.player1ImgSpecialAttackBallRight = loadImage('../assets/haduken-ball-right-chun.gif');
+        this.player1ImgSpecialAttackBallRight = loadImage('assets/haduken-ball-right-chun.gif');
         
        
         this.starter = loadSound('sounds/opening.mp3');

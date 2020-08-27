@@ -56,7 +56,11 @@ function setDirectionImgP2() {
 function keyPressed() {
     if(keyCode === 87) {
         game.player1.jump();
-        game.player1.image = game.player1ImgJump;
+        if(game.player1.direction === 'right') {
+            game.player1.image = game.player1ImgJumpRight;
+        } else {
+        game.player1.image = game.player1ImgJumpLeft;
+        }
         setTimeout(function() {setDirectionImgP1()},900);
     }
 
@@ -71,12 +75,20 @@ function keyPressed() {
     }
 
     if(keyCode === 84) {
-        game.player1.image = game.player1ImgBlock;
+        if(game.player1.direction === 'right') {
+            game.player1.image = game.player1ImgBlockRight;
+        } else {
+        game.player1.image = game.player1ImgBlockLeft;
+    }
     }
     
     if(keyCode === 70) {
         game.player1.kick(game.player2);
-        game.player1.image = game.player1ImgKick;
+        if(game.player1.direction === 'right') {
+            game.player1.image = game.player1ImgKickRight;
+        } else {
+        game.player1.image = game.player1ImgKickLeft;
+        }
         document.querySelector('#health2').value = game.player2.health;
         document.querySelector('#stamina1').value = game.player1.stamina;
         game.isGameFinished();
@@ -86,7 +98,11 @@ function keyPressed() {
     }
     if(keyCode === 71) {
         game.player1.punch(game.player2);
-        game.player1.image = game.player1ImgPunch;
+        if(game.player1.direction === 'right') {
+            game.player1.image = game.player1ImgPunchRight;
+        } else {
+        game.player1.image = game.player1ImgPunchLeft;
+        }
         document.querySelector('#health2').value = game.player2.health;
         document.querySelector('#stamina1').value = game.player1.stamina;
         game.isGameFinished();
@@ -97,7 +113,11 @@ function keyPressed() {
 
     if(keyCode === 38) {
         game.player2.jump();
-        game.player2.image = game.player2ImgJump;
+        if(game.player2.direction === 'right') {
+            game.player2.image = game.player2ImgJumpRight;
+        } else {
+        game.player2.image = game.player2ImgJumpLeft;
+        }
         setTimeout(function() {
             setDirectionImgP2();
         },1000);
@@ -114,12 +134,20 @@ function keyPressed() {
     }
 
     if(keyIsDown(73)) {
-        game.player2.image = game.player2ImgBlock;
+        if(game.player2.direction === 'right') {
+            game.player2.image = game.player2ImgBlockRight;
+        } else {
+        game.player2.image = game.player2ImgBlockLeft;
+    }
     }
 
     if(keyCode === 75) {
         game.player2.kick(game.player1);
-        game.player2.image = game.player2ImgKick;
+        if(game.player2.direction === 'right') {
+            game.player2.image = game.player2ImgKickRight;
+        } else {
+        game.player2.image = game.player2ImgKickLeft;
+        }
         document.querySelector('#health1').value = game.player1.health;
         document.querySelector('#stamina2').value = game.player2.stamina;
         game.isGameFinished();
@@ -129,7 +157,11 @@ function keyPressed() {
     }
     if(keyCode === 76) {
         game.player2.punch(game.player1);
-        game.player2.image = game.player2ImgPunch;
+        if(game.player2.direction === 'right') {
+            game.player2.image = game.player2ImgPunchRight;
+        } else {
+        game.player2.image = game.player2ImgPunchLeft;
+        }
         document.querySelector('#health1').value = game.player1.health;
         document.querySelector('#stamina2').value = game.player2.stamina;
         game.isGameFinished();
@@ -159,12 +191,12 @@ function keyPressed() {
 function keyReleased() {
     if(keyCode === 84) {
         console.log('block released!')
-        game.player1.image = game.player1Img;
+        setDirectionImgP1();
         game.player1.blocked = false;
     }
     if(keyCode === 73) {
         console.log('block released!')
-        game.player2.image = game.player2Img;
+        setDirectionImgP2();
         game.player2.blocked = false;
     }
 }

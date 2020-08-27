@@ -69,5 +69,9 @@ To Do
 - special attacks
 - background music
 - make characters turn towards each other
+- fix Ryu jump animation
+- make animations for both directions
+- disappearance after block bug
+
 
 

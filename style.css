@@ -10,7 +10,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url('assets/arcade-background.jpg');
+    background-image: url('assets/city.jpg');
     background-size: 100vw 100vh;
     font-family: 'Russo One', sans-serif;
 

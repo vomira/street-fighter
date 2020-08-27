@@ -270,6 +270,8 @@ function keyPressed() {
         document.querySelector("#game-start").style.display = "none";
         game.starter.stop();
         game.backgroundSong.play();
+        game.fightSound.play();
+        
     }
         if(game.gamePhase === 2 || game.gamePhase === 3) {
             document.querySelector("#game-end-ryu").style.display = "none";

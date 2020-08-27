@@ -39,9 +39,11 @@ class Game {
         
        
         this.starter = loadSound('sounds/opening.mp3');
+        this.fightSound = loadSound('sounds/fight.mp3');
         this.backgroundSong = loadSound('sounds/honda-background.mp3');
         this.endingSong = loadSound('sounds/honda-ending.mp3');
         this.hadokenRyu = loadSound('sounds/ryuken-hadoken.mp3');
+        
     }
 
     setupGame() {

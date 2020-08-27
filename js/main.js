@@ -4,14 +4,11 @@ let last4KeysP2 = [];
 
 
 function preload() {
-    soundFormats('mp3');
-    backgroundSong = loadSound('../sounds/honda-background.mp3')
     game.preloadGame();
 
 }
 
 function setup() {
-    
     const canvas = createCanvas(1000, 400);
     canvas.parent('sketch-holder');
     game.setupGame();
@@ -39,6 +36,12 @@ function draw() {
     }
 }
 
+
+function mouseClicked() {
+    if(game.gamePhase === 0) {
+    game.starter.play();
+    }
+}
 
 function setDirectionImgP1() {
     game.player1.setPlayerDirection(game.player2);
@@ -77,8 +80,8 @@ function isSpecialKomboPressed(keyComboArr, lastKeysArr) {
     return match;
 }
 
+
 function keyPressed() {
-    
 
     if(keyCode === 87) {
         addToKeyArr(last4KeysP1);
@@ -99,6 +102,7 @@ function keyPressed() {
         addToKeyArr(last4KeysP1);
         if(isSpecialKomboPressed([83, 84, 70, 65], last4KeysP1)) {
             game.player1.image = game.player1ImgSpecialAttackRight;
+            game.ball1.x = game.player1.x + 150;
             game.ball1.ballImage = game.player1ImgSpecialAttackBallRight;
             game.player1.specialAttack(game.player2);
             document.querySelector('#health2').value = game.player2.health;
@@ -188,6 +192,7 @@ function keyPressed() {
         addToKeyArr(last4KeysP2);
         if(isSpecialKomboPressed([76, 40, 39, 39], last4KeysP2)) {
             game.player2.image = game.player2ImgSpecialAttackLeft;
+            game.ball2.x = game.player2.x-150;
             game.ball2.ballImage = game.player2ImgSpecialAttackBallLeft;
             game.player2.specialAttack(game.player1);
             image(game.player2ImgSpecialAttackBallLeft, game.player2.x - 200, game.player2.y, game.player2.width, game.player2.height);
@@ -249,19 +254,18 @@ function keyPressed() {
         if(game.gamePhase === 0) {
         game.gamePhase = 1;
         document.querySelector("#game-start").style.display = "none";
-        backgroundSong.play();
+        game.starter.stop();
+        game.backgroundSong.play();
     }
-        
         if(game.gamePhase === 2 || game.gamePhase === 3) {
             document.querySelector("#game-end-ryu").style.display = "none";
             document.querySelector("#game-end-chun-li").style.display = "none";
             setup();
             game.gamePhase = 0;
-
+            game.endingSong.stop();
+            game.backgroundSong.play();
         }
       }
-      console.log(last4KeysP1);
-    console.log(last4KeysP2);
 }
 function keyReleased() {
     if(keyCode === 84) {

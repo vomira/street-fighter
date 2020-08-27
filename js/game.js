@@ -30,7 +30,11 @@ class Game {
         this.player2ImgSpecialAttackBallLeft = loadImage('assets/hadoken-ball-left.gif')
         this.emptyHadokenBall = loadImage('assets/empty-hadoken-ball.png');
         this.player1ImgSpecialAttackBallRight = loadImage('../assets/haduken-ball-right-chun.gif');
-    
+        
+       
+        this.starter = loadSound('sounds/opening.mp3');
+        this.backgroundSong = loadSound('sounds/honda-background.mp3');
+        this.endingSong = loadSound('sounds/honda-ending.mp3');
     }
 
     setupGame() {
@@ -72,9 +76,13 @@ class Game {
     isGameFinished() {
         if(game.player1.health <= 0) {
             this.gamePhase = 2;
+            this.backgroundSong.stop();
+            this.endingSong.play();
         }
         if(game.player2.health <= 0) {
             this.gamePhase = 3;
+            this.backgroundSong.stop();
+            this.endingSong.play();
         }    
     }
 

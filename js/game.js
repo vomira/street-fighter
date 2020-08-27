@@ -20,7 +20,7 @@ class Game {
         this.player1ImgSpecialAttackRight = loadImage('assets/chun-li-special-attack-right.gif');
         this.player1ImgSpecialAttackLeft = loadImage('assets/chun-li-special-attack-left.gif');
         this.player1ImgSpecialAttackBallRight = loadImage('assets/haduken-ball-right-chun.gif');
-        this.player1ImgSpecialAttackBallLeft = loadImage('../assets/haduken-ball-left-chun.gif');
+        this.player1ImgSpecialAttackBallLeft = loadImage('assets/haduken-ball-left-chun.gif');
         this.player2ImgPunchLeft = loadImage('assets/ryu-punch-left.png');
         this.player2ImgPunchRight = loadImage('assets/ryu-punch-right.png')
         this.player2ImgKickLeft = loadImage('assets/ryu-kick-left.png');
@@ -31,7 +31,8 @@ class Game {
         this.player2ImgBlockRight = loadImage('assets/ryu-block-right.png');
         this.player2ImgSpecialAttackLeft = loadImage('assets/ryu-hadoken-wo-ball-left.gif');
         this.player2ImgSpecialAttackBallLeft = loadImage('assets/hadoken-ball-left.gif');
-        this.player2ImgDamagedRight = loadImage('assets/ryu-damaged-left.gif');
+        this.player2ImgSpecialAttackRight = loadImage('assets/ryu-hadoken-wo-ball-right.gif');
+        this.player2ImgSpecialAttackBallRight = loadImage('assets/hadoken-ball-right.gif');
         this.emptyHadokenBall = loadImage('assets/empty-hadoken-ball.png');
         
     

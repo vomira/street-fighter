@@ -198,12 +198,18 @@ function keyPressed() {
     if(keyCode === 39) {
         addToKeyArr(last4KeysP2);
         if(isSpecialKomboPressed([76, 40, 39, 39], last4KeysP2)) {
-            game.player2.image = game.player2ImgSpecialAttackLeft;
-            game.ball2.x = game.player2.x-150;
-            game.ball2.ballImage = game.player2ImgSpecialAttackBallLeft;
+            if(game.player2.direction === 'right') {
+                game.player2.image = game.player2ImgSpecialAttackRight;
+                game.ball2.x = game.player2.x + game.player2.width;
+                game.ball2.ballImage = game.player2ImgSpecialAttackBallRight;
+            } else {
+
+                game.player2.image = game.player2ImgSpecialAttackLeft;
+                game.ball2.x = game.player2.x - game.ball2.width;
+                game.ball2.ballImage = game.player2ImgSpecialAttackBallLeft;
+            }
             game.player2.specialAttack(game.player1);
             game.hadokenRyu.play(); 
-            image(game.player2ImgSpecialAttackBallLeft, game.player2.x - 200, game.player2.y, game.player2.width, game.player2.height);
             document.querySelector('#health1').value = game.player1.health;
             document.querySelector('#stamina2').value = game.player2.stamina;
             setTimeout(function() {

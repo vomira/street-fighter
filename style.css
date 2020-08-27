@@ -1,10 +1,11 @@
 
 html, body {
     height: 100%;
+    margin: 0;
+    padding: 0;
   }
   
 body {
-    margin: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -76,8 +77,6 @@ canvas {
 
 .logo {
   height: 15%;
-  margin-top: 20px;
-  margin-bottom: 10px;
 }
 
 
@@ -91,7 +90,6 @@ canvas {
 
 .stats-container {
     width: 100%;
-    margin: 10px;
 }
 
 progress[value] {

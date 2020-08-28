@@ -73,32 +73,29 @@ class Player {
 
 
       kick(otherPlayer) {
-        if(this.stamina > 0) {
-          this.stamina -= 10
-        };
-        if(this.collision(otherPlayer) && !otherPlayer.blocked && this.stamina >= 0) {
+        if(this.collision(otherPlayer) && !otherPlayer.blocked && this.stamina >= 10) {
           otherPlayer.opacity = 100;
           setTimeout(() => {
             otherPlayer.opacity = 0
           }, 100)
           otherPlayer.health -= this.strength/20;
-          
         }
-       
-      }
-
-      punch(otherPlayer) {
         if(this.stamina >= 10) {
           this.stamina -= 10
         };
-        if(this.collision(otherPlayer) && !otherPlayer.blocked && this.stamina > -1) {
+      }
+
+      punch(otherPlayer) {
+        if(this.collision(otherPlayer) && !otherPlayer.blocked && this.stamina >= 10) {
           otherPlayer.opacity = 100;
           setTimeout(() => {
             otherPlayer.opacity = 0
           }, 100);
           otherPlayer.health -= this.strength/20;
-          
         }
+        if(this.stamina >= 10) {
+          this.stamina -= 10
+        };
        
       }
 

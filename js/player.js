@@ -14,6 +14,7 @@ class Player {
         this.y = height/2;
         this.blocked = false;
         this.direction;
+        this.opacity = 0;
     }
 
     drawPlayer(otherPlayer) {
@@ -24,6 +25,11 @@ class Player {
         if(this.y >= height/2) {
           this.y = height/2;
         }
+        push();
+        fill(200, 50, 50, this.opacity);
+        noStroke();
+        rect(this.x, this.y, this.height, this.width, 10);
+        pop();
         image(this.image, this.x, this.y, this.height, this.width);
         // draw the player + jump logic with velocity
       }
@@ -71,7 +77,10 @@ class Player {
           this.stamina -= 10
         };
         if(this.collision(otherPlayer) && !otherPlayer.blocked && this.stamina >= 0) {
-          console.log('kicked')
+          otherPlayer.opacity = 100;
+          setTimeout(() => {
+            otherPlayer.opacity = 0
+          }, 100)
           otherPlayer.health -= this.strength/20;
           
         }
@@ -83,7 +92,10 @@ class Player {
           this.stamina -= 10
         };
         if(this.collision(otherPlayer) && !otherPlayer.blocked && this.stamina > -1) {
-          console.log('punched')
+          otherPlayer.opacity = 100;
+          setTimeout(() => {
+            otherPlayer.opacity = 0
+          }, 100);
           otherPlayer.health -= this.strength/20;
           
         }
@@ -97,7 +109,10 @@ class Player {
         };
         if(this.stamina > -1) {
           otherPlayer.health -= this.strength/10;
-          console.log('special attack done!')
+          otherPlayer.opacity = 100;
+          setTimeout(() => {
+            otherPlayer.opacity = 0
+          }, 100);
         }
        
       }

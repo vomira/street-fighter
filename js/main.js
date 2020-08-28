@@ -110,6 +110,7 @@ function keyPressed() {
                 game.ball1.ballImage = game.player1ImgSpecialAttackBallLeft;
                 game.ball1.x = game.player1.x - game.ball1.height - 50;
             }
+            game.chunliYata.play();
             game.player1.specialAttack(game.player2);
             document.querySelector('#health2').value = game.player2.health;
             document.querySelector('#stamina1').value = game.player1.stamina;
@@ -279,7 +280,7 @@ function keyPressed() {
             setup();
             game.gamePhase = 0;
             game.endingSong.stop();
-            game.backgroundSong.play();
+            game.backgroundSong.loop();
         }
       }
 }

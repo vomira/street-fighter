@@ -11,7 +11,7 @@ class Game {
         this.player2ImgRight = loadImage('assets/ryu-standing-right.gif');
         this.player1ImgPunchRight = loadImage('assets/chun-li-punch-right.png');
         this.player1ImgPunchLeft = loadImage('assets/chun-li-punch-left.png')
-        this.player1ImgKickRight = loadImage('assets/chun-li-kick-right.png');
+        this.player1ImgKickRight = loadImage('../assets/chun-li-kick-right.png');
         this.player1ImgKickLeft = loadImage('assets/chun-li-kick-left.png');
         this.player1ImgJumpRight = loadImage('assets/chun-li-jump-right.gif');
         this.player1ImgJumpLeft = loadImage('assets/chun-li-jump-left.gif');
